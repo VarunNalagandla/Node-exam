@@ -45,20 +45,23 @@ return(
 requestQuery.category !== undefined && requestQuery.status !== undefined
 )
 }
-const hasCategoryAndPriority requestQuery => {
+
+const hasCategoryAndPriority = requestQuery => {
 return (
 requestQuery.category !== undefined && requestQuery.priority !== undefined
 )
 }
-const hasSearchPropperty
+
+const hasSearchPropperty = requestQuery => {
+return requestQuery.search_q !== undefined
 }
-requestQuery => {
-return requestQuery.search_q 1== undefined
+
 const hasCategoryProperty = requestQuery => {
 return requestQuery.category !== undefined
 }
+
 const outputResult = dbObject => {
-return
+return{
 id: dbObject.id,
 todo: dbObject.todo,
 priority: dbobject.priority,
@@ -66,9 +69,11 @@ category: dbObject.category,
 status: dbobject.status,
 dueDate: dbObject.due_date,
 }
+}
+
 app.get('/todos/', async (request, response) => {
-let data null
-let getTodosQuery =
+let data = null
+let getTodosQuery =''
 const {search_q = '', priority, status, category} = request.query
 switch (true) {
 case hasPriorityAndStatus Properties (request.query):
