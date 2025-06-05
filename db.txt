@@ -30,3 +30,5 @@ VALUES
 (17, 'Practice coding challenges', 'HIGH', 'TO DO', 'LEARNING', '2021-11-05');
 
 .exit
+
+npm install date-fns@latest
