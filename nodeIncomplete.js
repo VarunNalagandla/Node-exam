@@ -297,18 +297,18 @@ response.send('Invalid Todo Priority')
 }
 break
 case requestBody.todo !== undefined:
-updateTodoQuery = `update todo set todo='\${todo}', priority='\${priority}',status='\${sta`
-due_date='\${dueDate}' where id=\${todoId};
+updateTodoQuery = `update todo set todo='${todo}', priority='${priority}',status='${status}',
+due_date='${dueDate}' where id=${todoId};`
 await database.run(updateTodoQuery)
 response.send(`Todo Updated`)
 break
 case requestBody.category !== undefined:
 if (
 category === 'WORK' ||
-category = HOME ||
+category === HOME ||
 category === 'LEARNING'
 ) {
-updateTodoQuery = `update todo set todo='${todo}',priority='${priority}',status='${priority}', status='$
+updateTodoQuery = `update todo set todo='${todo}',priority='${priority}',status='${status}',
 due_date='${dueDate}' where id=${todoId};`
 await database.run(updateTodoQuery)
 response.send('Category Updated')
@@ -320,7 +320,7 @@ break
 case requestBody.dueDate !== undefined:
 if (isMatch(dueDate, 'yyyy-MM-dd')) {
 const NewDueDate = format(new Date(dueDate), 'yyyy-MM-dd')
-updateTodoQuery = `update todo set todo='${todo}',priority='${priority}',status='$
+updateTodoQuery = `update todo set todo='${todo}',priority='${priority}',status='${status},
 due_date='${NewDueDate}' where id=${todoId};`
 await database.run(updateTodoQuery)
 response.send('Due Date Updated')
@@ -331,10 +331,12 @@ response.send('Invalid Due Date')
 break
 }
 })
-app.delete('/todos/: todoId/', async (request, response) => {
-})
+
+app.delete('/todos/:todoId/', async (request, response) => {
 const {todoId) = request.params
-const deleteTodoQuery = delete from todo where id=${todoId};"
+const deleteTodoQuery = `delete from todo where id=${todoId};`
 await database.run(deleteTodoQuery)
 response.send('Todo Deleted')
+})
+
 module.exports = app
