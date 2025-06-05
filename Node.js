@@ -64,9 +64,9 @@ const outputResult = dbObject => {
   return {
     id: dbObject.id,
     todo: dbObject.todo,
-    priority: dbobject.priority,
+    priority: dbObject.priority,
     category: dbObject.category,
-    status: dbobject.status,
+    status: dbObject.status,
     dueDate: dbObject.due_date,
   }
 }
@@ -83,7 +83,7 @@ app.get('/todos/', async (request, response) => {
           status === 'IN PROGRESS' ||
           status === 'DONE'
         ) {
-          getTodosQuery = `select * from todo where status='${status}' and priority='${prior}'`
+          getTodosQuery = `select * from todo where status='${status}' and priority='${priority}'`
           data = await database.all(getTodosQuery)
           response.send(data.map(eachitem => outputResult(eachitem)))
         } else {
