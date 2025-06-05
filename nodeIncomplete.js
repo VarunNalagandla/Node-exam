@@ -5,9 +5,11 @@ const sqlite3= require('sqlite3')
 const format = require('date-fns/format')
 const isMatch = require('date-fns/isMatch')
 const isValid = require('date-fns/isValid')
+
 const app = express()
 app.use(express.json())
 let database
+
 const initializeDbAndServer = async () => {
 try {
 database = await open({
@@ -18,9 +20,10 @@ app.listen(3000, () => {
 console.log('Server is Running on http://localhost:3000/')
 })
 } catch (e) {
-}
 console.log(Database error iste.message}
 process.exit(1)
+}
+}
 initializeDbAndServer()
 const hasPriorityAndStatus Properties requestQuery => {
 return (
