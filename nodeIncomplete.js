@@ -218,25 +218,26 @@ response. status (400)
 response.send('Invalid Due Date')
 }
 })
+
 app.post('/todos/', async (request, response) => {
-const {id, todo, priority, status, category, dueDate] = request.body
+const {id, todo, priority, status, category, dueDate} = request.body
 if (priority === 'HIGH' || priority === 'MEDIUM' || priority === 'LOW') {
-if (status = 'TO DO' || status === 'IN PROGRESS || status=== 'DONE') {
+if (status === 'TO DO' || status === 'IN PROGRESS' || status=== 'DONE') {
 if (
 category === 'WORK' ||
 category === 'HOME ||
 category === 'LEARNING'
 ) {
 if (isMatch(dueDate, 'yyyy-MM-dd')) {
-const postNewDueDate = format(new Date (dueDate), 'yyyy-MM-dd')
-const postTodoQuery =
+const postNewDueDate = format(new Date(dueDate), 'yyyy-MM-dd')
+const postTodoQuery =`
 insert into todo (id, todo, category, priority, status, due_date) values
 (${id},
 '${todo}',
 '${category}',
 '${priority}',
 '${status}',
-${postNewDueDate}');"
+'${postNewDueDate}');`
 await database.run(postTodoQuery)
 response.send('Todo Successfully Added')
 } else {
