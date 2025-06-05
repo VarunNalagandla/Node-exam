@@ -257,30 +257,29 @@ response.status (400)
 response.send('Invalid Todo Priority')
 }
 })
-app.put('/todos/: todoId/', async (request, response) => {
+
+app.put('/todos/:todoId/', async (request, response) => {
 const {todoId} = request.params
-let updateColumn =
+let updateColumn =''
 const requestBody = request.body
 console.log(requestBody)
-const prevoiusTodoQuery = select * from todo where id=${todoId};
-const prevoiusTodo await database.get(prevoiusTodoQuery)
+const prevoiusTodoQuery = `select * from todo where id=${todoId};`
+const prevoiusTodo = await database.get(prevoiusTodoQuery)
 const {
-todo
-prevoiusTodo.todo,
+todo = prevoiusTodo.todo,
 priority = prevoiusTodo.priority,
 status = prevoiusTodo.status,
-category
-prevoiusTodo.category,
+category = prevoiusTodo.category,
 dueDate = prevoiusTodo.dueDate,
-= request.body
+}= request.body
 let updateTodoQuery
 switch (true) {
 case requestBody.status !== undefined:
 if (status === 'TO DO' || status === 'IN PROGRESS' || status=== 'DONE') {
-updateTodoQuery = update todo set todo='${todo}', priority='${priority}',status='$
-due_date='${dueDate}' where id=${todoId};
+updateTodoQuery =`update todo set todo='${todo}', priority='${priority}',status='${status}',
+due_date='${dueDate}' where id=${todoId};`
 await database.run(updateTodoQuery)
-response.send(Status Updated")
+response.send('Status Updated')
 } else {
 response.status (400)
 response.send('Invalid Todo Status')
@@ -288,14 +287,14 @@ response.send('Invalid Todo Status')
 break
 case requestBody.priority !== undefined:
 if (priority=== 'HIGH' || priority === 'MEDIUM' || priority=== 'LOW') {
-updateTodoQuery = `update todo set todo='\${todo}',priority='\${priority}',status='\${s`
-due_date='\${dueDate}' where id=\${todoId};
+updateTodoQuery = `update todo set todo='${todo}',priority='${priority}',status='${status},
+due_date='${dueDate}' where id=${todoId};`
 await database.run(updateTodoQuery)
 response.send(`Priority Updated`)
 } else {
-}
 response.status (400)
 response.send('Invalid Todo Priority')
+}
 break
 case requestBody.todo !== undefined:
 updateTodoQuery = `update todo set todo='\${todo}', priority='\${priority}',status='\${sta`
