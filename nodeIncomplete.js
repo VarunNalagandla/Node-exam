@@ -20,26 +20,29 @@ app.listen(3000, () => {
 console.log('Server is Running on http://localhost:3000/')
 })
 } catch (e) {
-console.log(Database error iste.message}
+console.log(`Database error is ${e.message}`)
 process.exit(1)
 }
 }
 initializeDbAndServer()
-const hasPriorityAndStatus Properties requestQuery => {
+
+const hasPriorityAndStatusProperties = requestQuery => {
 return (
 requestQuery.priority !== undefined && requestQuery.status!== undefined
 )
 }
-const hasPriorityProperty
-}
-requestQuery => {
+
+const hasPriorityProperty = requestQuery => {
 return requestQuery.priority !== undefined
-const hasStatus Property = requestQuery => {
+}
+
+const hasStatusProperty = requestQuery => {
 return requestQuery.status !== undefined
 }
-const hasCategoryAndStatus requestQuery => {
-return
-requestQuery.category !== undefined && requestQuery.status = undefined
+
+const hasCategoryAndStatus = requestQuery => {
+return(
+requestQuery.category !== undefined && requestQuery.status !== undefined
 )
 }
 const hasCategoryAndPriority requestQuery => {
