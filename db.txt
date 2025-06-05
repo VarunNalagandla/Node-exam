@@ -1,0 +1,32 @@
+sqlite3 todoApplication.db
+
+CREATE TABLE todo (
+  id INTEGER PRIMARY KEY,
+  todo TEXT,
+  priority TEXT,
+  status TEXT,
+  category TEXT,
+  due_date DATE
+);
+
+INSERT INTO todo (id, todo, priority, status, category, due_date)
+VALUES
+(1, 'Learn Node JS', 'HIGH', 'IN PROGRESS', 'LEARNING', '2021-03-16'),
+(2, 'Buy a Car', 'MEDIUM', 'TO DO', 'HOME', '2021-09-22'),
+(3, 'Clean the garden', 'LOW', 'TO DO', 'HOME', '2021-12-12'),
+(4, 'Fix the bug', 'MEDIUM', 'DONE', 'WORK', '2021-01-25'),
+(5, 'Prepare for exam', 'HIGH', 'TO DO', 'LEARNING', '2021-11-10'),
+(6, 'Office meeting', 'HIGH', 'DONE', 'WORK', '2021-06-20'),
+(7, 'Build project', 'MEDIUM', 'IN PROGRESS', 'LEARNING', '2021-10-15');
+(8, 'Renew car insurance', 'MEDIUM', 'TO DO', 'HOME', '2021-07-05'),
+(9, 'Watch Node tutorials', 'LOW', 'IN PROGRESS', 'LEARNING', '2021-08-15'),
+(10, 'Submit project report', 'HIGH', 'DONE', 'WORK', '2021-02-28'),
+(11, 'Organize bookshelf', 'LOW', 'TO DO', 'HOME', '2021-03-20'),
+(12, 'Update LinkedIn profile', 'MEDIUM', 'IN PROGRESS', 'LEARNING', '2021-09-01'),
+(13, 'Fix security issues', 'HIGH', 'IN PROGRESS', 'WORK', '2021-04-18'),
+(14, 'Attend React workshop', 'HIGH', 'DONE', 'LEARNING', '2021-06-25'),
+(15, 'Clean email inbox', 'LOW', 'DONE', 'WORK', '2021-01-30'),
+(16, 'Backup laptop files', 'MEDIUM', 'TO DO', 'HOME', '2021-10-10'),
+(17, 'Practice coding challenges', 'HIGH', 'TO DO', 'LEARNING', '2021-11-05');
+
+.exit
