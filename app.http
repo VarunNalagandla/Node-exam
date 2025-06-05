@@ -1,33 +1,71 @@
-GET http://localhost:3000/todos/
+GET http://localhost:3000/todos/?status=TO%20DO
 ###
 
-GET http://localhost:3000/todos/13/
+GET http://localhost:3000/todos/?priority=HIGH
+###
+
+GET http://localhost:3000/todos/?priority=HIGH&status=IN%20PROGRESS
+###
+
+GET http://localhost:3000/todos/?search_q=Buy
+###
+
+GET http://localhost:3000/todos/?category=WORK&status=DONE
+###
+
+GET http://localhost:3000/todos/?category=HOME
+###
+
+GET http://localhost:3000/todos/?category=LEARNING&priority=HIGH
+###
+
+GET http://localhost:3000/todos/1/
+###
+GET http://localhost:3000/agenda/?date=2021-12-12
 ###
 
 POST http://localhost:3000/todos/
-content-type:application/json
-{
-  "id": 13,
-  "todo": "Finalize event theme",
-  "priority": "LOW",
-  "status": "TO DO"
-}
-###
+content-type: application/json
 
-PUT http://localhost:3000/todos/12/
-content-type:application/json
+{
+  "id": 14,
+  "todo": "Prepare for demo",
+  "priority": "HIGH",
+  "status": "TO DO",
+  "category": "WORK",
+  "dueDate": "2021-07-01"
+}
+
+###
+PUT http://localhost:3000/todos/14/
+content-type: application/json
+
 { "status": "DONE" }
 ###
 
-PUT http://localhost:3000/todos/12/
-content-type:application/json
-{ "priority": "HIGH" }
+PUT http://localhost:3000/todos/14/
+content-type: application/json
+
+{ "priority": "MEDIUM" }
 ###
 
-PUT http://localhost:3000/todos/12/
-content-type:application/json
-{ "todo": "Some task" }
+PUT http://localhost:3000/todos/14/
+content-type: application/json
+
+{ "todo": "Finish the final report" }
 ###
 
-DELETE http://localhost:3000/todos/13/
+PUT http://localhost:3000/todos/14/
+content-type: application/json
+
+{ "category": "LEARNING" }
+###
+
+PUT http://localhost:3000/todos/14/
+content-type: application/json
+
+{ "dueDate": "2021-08-10" }
+###
+
+DELETE http://localhost:3000/todos/14/
 ###
