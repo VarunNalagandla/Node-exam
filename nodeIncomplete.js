@@ -143,32 +143,38 @@ response.send('Invalid Todo Priority')
 response.status (400)
 response.send('Invalid Todo Category')
 }
+                                                                                 
 break
+                                                                                 
 case hasPriorityProperty(request.query):
 if (priority === 'HIGH' || priority === 'MEDIUM' || priority === 'LOW') {
-getTodosQuery select * from todo where priority='${priority}';
-data await database.all(getTodosQuery)
+getTodosQuery = `select * from todo where priority='${priority}';`
+data = await database.all(getTodosQuery)
 response.send(data.map(eachitem => outputResult (eachitem)))
 } else {
 response.status (400)
 response.send('Invalid Todo Priority')
 }
+
 break
-case hasStatus Property (request.query):
+
+case hasStatusProperty (request.query):
 if (status === 'TO DO' || status === 'IN PROGRESS || status === 'DONE') {
-get Todos Query = "select * from todo where status='${status}';"
-data await database.all (getTodos Query)
+getTodosQuery = `select * from todo where status='${status}';`
+data = await database.all (getTodos Query)
 response.send(data.map(eachitem => outputResult (eachitem)))
 } else {
 response.status (400)
 response.send('Invalid Todo Status')
 }
 break
+
 case hasSearchPropperty (request.query):
-get Todos Query = "select * from todo where todo like '%${search_q}%';"
-data await database.all (getTodos Query)
+getTodosQuery = `select * from todo where todo like '%${search_q}%';`
+data = await database.all (getTodosQuery)
 response.send(data.map(eachitem => outputResult(eachitem)))
 break
+
 case hasCategoryProperty(request.query):
 if (
 category === 'WORK' ||
@@ -183,25 +189,28 @@ response.status(400)
 response.send('Invalid Todo Category')
 }
 break
+
 default:
 getTodosQuery = `select * from todo;`
 data = await database.all(getTodosQuery)
 response.send(data.map(eachitem => outputResult(eachitem)))
 }
 })
-app. get ('/todos/ : todoId', async (request, response) => {
-const {todoId} = request. params
-const getTodoQuery = 'select * from todo where id='${todoId}';"
+
+app.get('/todos/:todoId', async (request, response) => {
+const {todoId} = request.params
+const getTodoQuery = `select * from todo where id='${todoId}';`
 const responseResult = await database.get(getTodoQuery)
-response. send (outputResult(responseResult))
+response.send(outputResult(responseResult))
 })
+
 app.get('/agenda/', async (request, response) => {
 const {date} = request.query
 console.log(isMatch(date, 'yyyy-MM-dd'))
 if (isMatch(date, 'yyyy-MM-dd')) {
 const newDate = format(new Date(date), 'yyyy-MM-dd' )
 console.log(newDate)
-const requestQuery = 'select * from todo where due_date='${newDate} ';
+const requestQuery = `select * from todo where due_date='${newDate}';`
 const responseResult = await database.all (requestQuery)
 response. send (responseResult.map(eachitem => outputResult(eachitem)))
 } else {
