@@ -17,7 +17,7 @@ VALUES
 (4, 'Fix the bug', 'MEDIUM', 'DONE', 'WORK', '2021-01-25'),
 (5, 'Prepare for exam', 'HIGH', 'TO DO', 'LEARNING', '2021-11-10'),
 (6, 'Office meeting', 'HIGH', 'DONE', 'WORK', '2021-06-20'),
-(7, 'Build project', 'MEDIUM', 'IN PROGRESS', 'LEARNING', '2021-10-15');
+(7, 'Build project', 'MEDIUM', 'IN PROGRESS', 'LEARNING', '2021-10-15'),
 (8, 'Renew car insurance', 'MEDIUM', 'TO DO', 'HOME', '2021-07-05'),
 (9, 'Watch Node tutorials', 'LOW', 'IN PROGRESS', 'LEARNING', '2021-08-15'),
 (10, 'Submit project report', 'HIGH', 'DONE', 'WORK', '2021-02-28'),
