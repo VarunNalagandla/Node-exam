@@ -95,30 +95,32 @@ response. status (400)
 response. send( 'Invalid Todo Priority')
 }                                     
 break
+                                                                             
 case hasCategoryAndStatus (request.query) :
 if (
-==
-category === 'WORK '
-category ===
-'HOME '
+category === 'WORK' ||
+category === 'HOME' ||
 category === 'LEARNING'
-A
+){
 if (
-status ===
-'TO DO' ||
-status === 'IN PROGRESS' | |
-status === 'DONE '
-getTodosQuery = "select * from todo where category='${category} ' and status='${st
+status === 'TO DO' ||
+status === 'IN PROGRESS' ||
+status === 'DONE'
+){
+getTodosQuery = `select * from todo where category='${category}' and status='${status}
 data = await database.all(getTodosQuery)
 response. send(data.map(eachitem => outputResult(eachitem)))
 } else {
 response. status ( 400)
 response.send('Invalid Todo Status')
+}
 } else {
 response.status (400)
 response.send('Invalid Todo Category')
 }
+
 break
+
 case hasCategoryAndPriority (request.query):
 if (
 category === 'WORK' ||
@@ -131,11 +133,12 @@ priority === 'MEDIUM' ||
 priority === 'LOW'
 ) {
 getTodosQuery = `select * from todo where category='${category}' and priority='${p
-data = await database.all (getTodos Query)
+data = await database.all (getTodosQuery)
 response.send(data.map(eachitem => outputResult (eachitem)))
 } else {
 response.status (400)
 response.send('Invalid Todo Priority')
+}                                                                                
 } else {
 response.status (400)
 response.send('Invalid Todo Category')
