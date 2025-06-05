@@ -76,23 +76,24 @@ let data = null
 let getTodosQuery =''
 const {search_q = '', priority, status, category} = request.query
 switch (true) {
-case hasPriorityAndStatus Properties (request.query):
+case hasPriorityAndStatusProperties (request.query):
 if (priority === 'HIGH' || priority === 'MEDIUM' || priority === 'LOW') {
 if (
-){
 status === 'TO DO' ||
 status === 'IN PROGRESS' ||
 status === 'DONE'
-getTodosQuery = select from todo where status='${status}' and priority='${prio
-data await database.all (getTodosQuery)
+){
+getTodosQuery = `select * from todo where status='${status}' and priority='${prior
+data = await database.all (getTodosQuery)
 response.send(data.map(eachitem => outputResult (eachitem)))
 } else {
 response.status (400)
-response.send(Invalid Todo Status')
+response.send('Invalid Todo Status')
 }
 } else {
 response. status (400)
 response. send( 'Invalid Todo Priority')
+                                                                             }                                                                            
 break
 case hasCategoryAndStatus (request.query) :
 if (
