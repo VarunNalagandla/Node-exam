@@ -93,7 +93,7 @@ response.send('Invalid Todo Status')
 } else {
 response. status (400)
 response. send( 'Invalid Todo Priority')
-                                                                             }                                                                            
+}                                     
 break
 case hasCategoryAndStatus (request.query) :
 if (
