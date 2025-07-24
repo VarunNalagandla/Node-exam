@@ -307,7 +307,7 @@ due_date='${dueDate}' where id=${todoId};`
         category === 'HOME' ||
         category === 'LEARNING'
       ) {
-        updateTodoQuery = `update todo set todo='${todo}',priority='${priority}',status='${status}',
+        updateTodoQuery = `update todo set todo='${todo}',priority='${priority}',status='${status}',category='${category}',
 due_date='${dueDate}' where id=${todoId};`
         await database.run(updateTodoQuery)
         response.send('Category Updated')
